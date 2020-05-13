@@ -25,6 +25,7 @@ subscription-manager attach --pool=${POOL}
 
 echo "==== clean up yum and repo setup"
 yum clean all
+subscription-manager clean
 yum install yum-utils -y
 yum-config-manager --add-repo rhel-7-server-rpms
 yum-config-manager --add-repo rhel-7-server-extra-rpms
