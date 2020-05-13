@@ -97,7 +97,7 @@ backend openshift-api-server
 	server master-0 MASTER0IP:6443 check
 	server master-1 MASTER1IP:6443 check
 	server master-2 MASTER2IP:6443 check
-	server bootstrap BOOTSTRAPIP:6443 check
+        server bootstrap BOOTSTRAPIP:6443 check
 
 frontend machine-config-server
 	bind *:22623
@@ -111,7 +111,7 @@ backend machine-config-server
         server master-0 MASTER0IP:22623 check
         server master-1 MASTER1IP:22623 check
         server master-2 MASTER2IP:22623 check
-                                server bootstrap BOOTSTRAPIP:22623 check
+        server bootstrap BOOTSTRAPIP:22623 check
 
 frontend ingress-http
 	bind *:80
@@ -143,6 +143,7 @@ echo "==== install and configure apache"
 yum install httpd -y
 sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/httpd.conf
 echo "apache is setup" > /var/www/html/test
+service httpd start
 
 echo "==== get openshift install, client, and RHCOS images"
 wget https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-install-linux.tar.gz
@@ -227,9 +228,9 @@ boot
 EOT
 
 
-sed -i "s/PUBLICIP/$PUBLICIP/" /var/www/html/bootstrap.boot
-sed -i "s/PUBLICIP/$PUBLICIP/" /var/www/html/master.boot
-sed -i "s/PUBLICIP/$PUBLICIP/" /var/www/html/worker.boot
+sed -i "s/PUBLICIP/$PUBLICIP/g" /var/www/html/packetstrap/bootstrap.boot
+sed -i "s/PUBLICIP/$PUBLICIP/g" /var/www/html/packetstrap/master.boot
+sed -i "s/PUBLICIP/$PUBLICIP/g" /var/www/html/packetstrap/worker.boot
 
 
 
@@ -237,4 +238,6 @@ echo "==== all done, you can now iPXE servers to:"
 echo "       http://${PUBLICIP}:8080/packetstrap/bootstrap.boot"
 echo "       http://${PUBLICIP}:8080/packetstrap/master.boot"
 echo "       http://${PUBLICIP}:8080/packetstrap/worker.boot"
+
+
 
