@@ -207,6 +207,8 @@ cp rhcos-4.4.3-x86_64-installer.x86_64.iso /var/www/html/packetstrap/
 cp rhcos-4.4.3-x86_64-installer-kernel-x86_64 /var/www/html/packetstrap/
 cp rhcos-4.4.3-x86_64-metal.x86_64.raw.gz /var/www/html/packetstrap/
 
+chmod 644 /var/www/html/packetstrap/*.ign
+
 
 cat <<EOT > /var/www/html/packetstrap/bootstrap.boot
 #!ipxe
