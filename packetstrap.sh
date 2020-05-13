@@ -38,6 +38,7 @@ firewall-cmd --add-port=8088/tcp
 firewall-cmd --add-port=6443/tcp
 firewall-cmd --add-port=22623/tcp
 firewall-cmd --add-port=2376/tcp
+firewall-cmd --add-port=9000/tcp
 firewall-cmd --add-port=2376/udp
 firewall-cmd --add-port=111/tcp
 firewall-cmd --add-port=662/tcp
