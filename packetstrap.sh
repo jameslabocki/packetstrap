@@ -202,6 +202,11 @@ echo "==== Create publicly accessible directory, Copy ignition files, Create iPX
 mkdir /var/www/html/packetstrap
 
 cp packetinstall/*.ign /var/www/html/packetstrap/
+cp rhcos-4.4.3-x86_64-installer-initramfs.x86_64.img /var/www/html/packetstrap/
+cp rhcos-4.4.3-x86_64-installer.x86_64.iso /var/www/html/packetstrap/
+cp rhcos-4.4.3-x86_64-installer-kernel-x86_64 /var/www/html/packetstrap/
+cp rhcos-4.4.3-x86_64-metal.x86_64.raw.gz /var/www/html/packetstrap/
+
 
 cat <<EOT > /var/www/html/packetstrap/bootstrap.boot
 #!ipxe
