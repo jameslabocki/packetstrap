@@ -213,7 +213,7 @@ chmod 644 /var/www/html/packetstrap/*.ign
 cat <<EOT > /var/www/html/packetstrap/bootstrap.boot
 #!ipxe
 
-kernel http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-kernel-x86_64 ip=dhcp rd.neednet=1 initrd=http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-initramfs.x86_64.img console=ttyS1,115200n8 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://PUBLICIP:8080/packetstrap/bootstrap.ign
+kernel http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-kernel-x86_64 ip=dhcp rd.neednet=1 initrd=rhcos-4.4.3-x86_64-installer-initramfs.x86_64.img console=ttyS1,115200n8 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://PUBLICIP:8080/packetstrap/bootstrap.ign
 initrd http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-initramfs.x86_64.img
 boot
 EOT
@@ -221,7 +221,7 @@ EOT
 cat <<EOT > /var/www/html/packetstrap/master.boot
 #!ipxe
 
-kernel http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-kernel-x86_64 ip=dhcp rd.neednet=1 initrd=http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-initramfs.x86_64.img console=ttyS1,115200n8 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://PUBLICIP:8080/packetstrap/master.ign
+kernel http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-kernel-x86_64 ip=dhcp rd.neednet=1 initrd=rhcos-4.4.3-x86_64-installer-initramfs.x86_64.img console=ttyS1,115200n8 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://PUBLICIP:8080/packetstrap/master.ign
 initrd http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-initramfs.x86_64.img
 boot
 EOT
@@ -229,7 +229,7 @@ EOT
 cat <<EOT > /var/www/html/packetstrap/worker.boot
 #!ipxe
 
-kernel http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-kernel-x86_64 ip=dhcp rd.neednet=1 initrd=http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-initramfs.x86_64.img console=ttyS1,115200n8 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://PUBLICIP:8080/packetstrap/worker.ign
+kernel http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-kernel-x86_64 ip=dhcp rd.neednet=1 initrd=rhcos-4.4.3-x86_64-installer-initramfs.x86_64.img console=ttyS1,115200n8 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-metal.x86_64.raw.gz coreos.inst.ignition_url=http://PUBLICIP:8080/packetstrap/worker.ign
 initrd http://PUBLICIP:8080/packetstrap/rhcos-4.4.3-x86_64-installer-initramfs.x86_64.img
 boot
 EOT
