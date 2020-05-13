@@ -7,6 +7,7 @@
 #   - Pass your subscription pool ID as $1
 #   - have your pull secret in a file named pull-secret.txt in the same directory as this script
 
+[[ $# -eq 0 ]] && echo "Please provide required arguments" && exit 254
 
 echo "==== Setting variables"
 POOL=$1
