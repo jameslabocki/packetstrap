@@ -252,5 +252,8 @@ echo "       http://${PUBLICIP}:8080/packetstrap/bootstrap.boot"
 echo "       http://${PUBLICIP}:8080/packetstrap/master.boot"
 echo "       http://${PUBLICIP}:8080/packetstrap/worker.boot"
 
+echo "==== setting path"
+export PATH=$PATH:$PWD
+
 
 
