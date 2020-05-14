@@ -18,6 +18,9 @@ SSHKEY=`cat ~/.ssh/id_rsa.pub`
 PUBLICIP=`ip address show dev bond0 |grep bond0 |grep -v bond0:0 |grep inet |awk -F" " '{ print $2}' |awk -F"/" '{print $1}'`
 
 
+# Create SSH key
+ssh-keygen -b 2048 -t rsa -f /root/.ssh/id_rsa -q -N ""
+
 # Register
 echo "==== registering with subscription manager"
 subscription-manager register
