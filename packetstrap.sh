@@ -59,7 +59,8 @@ firewall-cmd --runtime-to-permanent
 
 echo "==== install and configure nfs"
 yum install nfs-utils -y
-echo "/mnt/data *(rw,root_squash)" >> /etc/exports
+echo "/mnt/data *(rw,sync,no_wdelay,no_root_squash,insecure,fsid=0)" >> /etc/exports
+
 mkdir /mnt/data
 service nfs start
 exportfs
