@@ -1,13 +1,18 @@
 #!/bin/bash
 
-# This simple bash scripts will
+# This simple bash scripts will do just about everything needed to have a helper node for deployment of OpenShift
 #  
-#
 # You need to:
 #   - Pass your subscription pool ID as $1
-#   - have your pull secret in a file named pull-secret.txt in the same directory as this script
+#   - Pass your domain name as $2
+#   - Pass your subdomain name (and cluster name) as $3
+# For example: ./packetstrap.sh 8a85f99c6f0fa8e3016f19db8d17768e demonstr8.net test
 
-[[ $# -eq 0 ]] && echo "Please provide required arguments" && exit 254
+# You also need to:
+#   - have your pull secret in a file named pull-secret.txt in the same directory as this script
+#   - have a ssh key in ~/.ssh/id_rsa.pub 
+
+[[ $# -ne 3 ]] && echo "Please provide 3 arguments" && exit 254
 
 echo "==== Setting variables"
 POOL=$1
