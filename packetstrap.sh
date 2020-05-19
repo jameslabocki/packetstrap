@@ -19,11 +19,6 @@ if [ ! -f pull-secret.txt ]; then
     exit 254
 fi
 
-if [ ! -f ~/.ssh/id_rsa.pub ]; then
-    echo "~/.ssh/id_rsa.pub not found"
-    exit 254
-fi
-
 echo "==== Setting variables"
 POOL=$1
 BASEDOMAIN=$2
