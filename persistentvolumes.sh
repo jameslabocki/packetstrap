@@ -10,7 +10,7 @@ metadata:
   name: pv001
 spec:
   capacity:
-    storage: 30Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
@@ -27,7 +27,7 @@ metadata:
   name: pv002
 spec:
   capacity:
-    storage: 30Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
@@ -44,7 +44,7 @@ metadata:
   name: pv003
 spec:
   capacity:
-    storage: 30Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
@@ -61,7 +61,7 @@ metadata:
   name: pv004
 spec:
   capacity:
-    storage: 30Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
