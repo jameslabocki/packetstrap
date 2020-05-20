@@ -11,6 +11,7 @@ First, deploy the following in EWR1:
 
  - x1.small.x86 ($0.40/hour)
  - Operating System = Licensed – RHEL 7
+
 This node will act as our “helper”. This is not to be confused with the bootstrap node for deploying OpenShift. We will deploy that later. The “helper” will be where we run the packetstrap.sh script to get everything ready to go.
 
 Once x1.small.x86 is up and running ssh to it and download the scripts (git isn’t installed by default).
@@ -31,15 +32,15 @@ Once x1.small.x86 is up and running ssh to it and download the scripts (git isn�
 
 Now download your pull-secret from the [OpenShift Install Page](https://cloud.redhat.com/openshift/install/pull-secret) and drop it into your current working directory as pull-secret.txt. After that, run the packetstrap.sh script and pass it three arguments:
 
-The pool ID to use that contains the OpenShift subscriptions.
-The domain name (demonstr8.net below)
-The sub-domain name and/or cluster name (test below)
+ - The pool ID to use that contains the OpenShift subscriptions.
+ - The domain name (demonstr8.net below)
+ - The sub-domain name and/or cluster name (test below)
 
 ```
 # ./packetstrap.sh 8a85f99c6f0fa8e3016f19db8d17768e demonstr8.net test
 ```
 
-This will take a little bit to run and it does a lot of things. You can view the script if you want to see everything it does. In the end, if everything worked you should see this:
+This will take a little bit to run and it does a lot of things. You can (view the script)[https://github.com/jameslabocki/packetstrap/blob/master/packetstrap.sh] if you want to see everything it does. In the end, if everything worked you should see this:
 
 ```
 ==== create manifests
@@ -99,6 +100,11 @@ INFO It is now safe to remove the bootstrap resources
 ```
 
 Once it returns you can remove the bootstrap server (or comment it out) from /etc/haproxy/haproxy.cfg and restart haproxy.
+
+```
+# vi /etc/haproxy/haproxy.cfg
+ <comment out bootstrap node>
+# systemctl restart haproxy.service
 
 Then you can source your kubeconfig and be on your way.
 
