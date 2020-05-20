@@ -14,7 +14,7 @@ This node will act as our “helper”. This is not to be confused with the boot
 
 Once x1.small.x86 is up and running ssh to it and download the scripts (git isn’t installed by default).
 
-...
+```
 # wget https://raw.githubusercontent.com/jameslabocki/packetstrap/master/packetstrap.sh
 
 # wget https://raw.githubusercontent.com/jameslabocki/packetstrap/master/fixhaproxy.sh
@@ -22,7 +22,7 @@ Once x1.small.x86 is up and running ssh to it and download the scripts (git isn�
 # wget https://raw.githubusercontent.com/jameslabocki/packetstrap/master/imageregistry.sh
 
 # wget https://raw.githubusercontent.com/jameslabocki/packetstrap/master/persistentvolumes.sh
-...
+```
 
 # chmod +x *.sh
 
