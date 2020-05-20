@@ -1,15 +1,16 @@
 # Deploying OpenShift 4.4 on Packet
 I thought I’d share how I’ve automated a large portion of the deployment of OpenShift 4.4 on bare metal from Packet. I did this rather quickly, so your mileage may vary. You should always consider using the official documentation if you are doing something serious! I’m assuming you have:
 
-SSH keys configured in Packet
-A domain registered in AWS Route53
-Access to OpenShift subscriptions
+ - SSH keys configured in Packet
+ - A domain registered in AWS Route53 (feel free to use your favorite DNS service)
+ - Access to OpenShift subscriptions
+
 I used the Parsippany, USA (EWR1) datacenter, but this should work with any datacenter.
 
 First, deploy the following in EWR1:
 
-x1.small.x86 ($0.40/hour)
-Operating System = Licensed – RHEL 7
+ - x1.small.x86 ($0.40/hour)
+ - Operating System = Licensed – RHEL 7
 This node will act as our “helper”. This is not to be confused with the bootstrap node for deploying OpenShift. We will deploy that later. The “helper” will be where we run the packetstrap.sh script to get everything ready to go.
 
 Once x1.small.x86 is up and running ssh to it and download the scripts (git isn’t installed by default).
