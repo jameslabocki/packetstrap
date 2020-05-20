@@ -146,4 +146,4 @@ If you want to create some persistent volumes you can run the persistentvolumes.
 # ./persistentvolumes.sh
 ```
 
-Now you can download the (RHEL 8.1 guest image)[https://access.redhat.com/downloads/content/479/ver=/rhel---8/8.1/x86_64/product-software], upload it to /var/www/html on the helper node and get to deploying some VMs on (OpenShift Virtualization)[https://docs.openshift.com/container-platform/4.4/welcome/index.html]!
+Now you can download the [RHEL 8.1 guest image](https://access.redhat.com/downloads/content/479/ver=/rhel---8/8.1/x86_64/product-software), upload it to /var/www/html on the helper node and get to deploying some VMs on [OpenShift Virtualization](https://docs.openshift.com/container-platform/4.4/welcome/index.html)!
