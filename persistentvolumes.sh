@@ -76,3 +76,7 @@ sed -i "s/PUBLICIP/$PUBLICIP/g" pv002.yaml
 sed -i "s/PUBLICIP/$PUBLICIP/g" pv003.yaml 
 sed -i "s/PUBLICIP/$PUBLICIP/g" pv004.yaml 
 
+./oc create -f pv001.yaml
+./oc create -f pv002.yaml
+./oc create -f pv003.yaml
+./oc create -f pv004.yaml
