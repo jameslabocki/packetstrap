@@ -105,6 +105,7 @@ Once it returns you can remove the bootstrap server (or comment it out) from /et
 # vi /etc/haproxy/haproxy.cfg
  <comment out bootstrap node>
 # systemctl restart haproxy.service
+```
 
 Then you can source your kubeconfig and be on your way.
 
