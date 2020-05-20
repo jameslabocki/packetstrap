@@ -28,7 +28,7 @@ Once x1.small.x86 is up and running ssh to it and download the scripts (git isn�
 # chmod +x *.sh
 ```
 
-Now download your pull-secret from the OpenShift install page and drop it into your current working directory as pull-secret.txt. After that, run the packetstrap.sh script and pass it three arguments:
+Now download your pull-secret from the [OpenShift Install Page](https://cloud.redhat.com/openshift/install/pull-secret) and drop it into your current working directory as pull-secret.txt. After that, run the packetstrap.sh script and pass it three arguments:
 
 The pool ID to use that contains the OpenShift subscriptions.
 The domain name (demonstr8.net below)
@@ -59,13 +59,13 @@ http://147.75.199.131:8080/packetstrap/worker.boot
 
 Your IP address will be different of course. As you can see, you are provided with the iPXE boot URLs for the bootstrap, master, and worker nodes. Now you can boot the following in Packet.
 
-bootstrap – c2.medium.x86 – custom iPXE – use the bootstrap.boot URL above
-master0 – c2.medium.x86 – custom iPXE – use the master.boot URL above
-master1 – c2.medium.x86 – custom iPXE – use the master.boot URL above
-master2 – c2.medium.x86 – custom iPXE – use the master.boot URL above
-worker1 – c2.medium.x86 – custom iPXE – use the worker.boot URL above
-worker2 – c2.medium.x86 – custom iPXE – use the worker.boot URL above
-As those boot, you’ll need to get those IP addresses into Amazon Route53 and also change haproxy to have the right IP addresses.
+ - bootstrap – c2.medium.x86 – custom iPXE – use the bootstrap.boot URL above
+ - master0 – c2.medium.x86 – custom iPXE – use the master.boot URL above
+ - master1 – c2.medium.x86 – custom iPXE – use the master.boot URL above
+ - master2 – c2.medium.x86 – custom iPXE – use the master.boot URL above
+ - worker1 – c2.medium.x86 – custom iPXE – use the worker.boot URL above
+ - worker2 – c2.medium.x86 – custom iPXE – use the worker.boot URL above
+ - As those boot, you’ll need to get those IP addresses into Amazon Route53 and also change haproxy to have the right IP addresses.
 
 Here are the changes to Route53 I made (as an example)
 
