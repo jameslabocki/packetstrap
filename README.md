@@ -65,7 +65,8 @@ Your IP address will be different of course. As you can see, you are provided wi
  - master2 – c2.medium.x86 – custom iPXE – use the master.boot URL above
  - worker1 – c2.medium.x86 – custom iPXE – use the worker.boot URL above
  - worker2 – c2.medium.x86 – custom iPXE – use the worker.boot URL above
- - As those boot, you’ll need to get those IP addresses into Amazon Route53 and also change haproxy to have the right IP addresses.
+
+As those boot, you’ll need to get those IP addresses into Amazon Route53 and also change haproxy to have the right IP addresses.
 
 Here are the changes to Route53 I made (as an example)
 
@@ -82,7 +83,7 @@ For editing haproxy you can just edit the values in the fixhaproxy.sh and run th
 Now you can watch and wait to see if the deployment returns
 
 ```
-# ./openshift-install –dir=packetinstall wait-for bootstrap-complete –log-level=info
+# ./openshift-install --dir=packetinstall wait-for bootstrap-complete --log-level=info 
 INFO Waiting up to 20m0s for the Kubernetes API at https://api.test.demonstr8.net:6443&#8230;
 ```
 
