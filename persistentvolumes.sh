@@ -10,11 +10,11 @@ metadata:
   name: pv001
 spec:
   capacity:
-    storage: 10Gi
+    storage: 12Gi
   accessModes:
     - ReadWriteOnce
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: slow
   nfs:
     path: /mnt/data
     server: PUBLICIP
@@ -27,11 +27,11 @@ metadata:
   name: pv002
 spec:
   capacity:
-    storage: 10Gi
+    storage: 12Gi
   accessModes:
     - ReadWriteOnce
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: slow
   nfs:
     path: /mnt/data
     server: PUBLICIP
@@ -44,11 +44,11 @@ metadata:
   name: pv003
 spec:
   capacity:
-    storage: 10Gi
+    storage: 12Gi
   accessModes:
+    - ReadWriteOnce
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: slow
   nfs:
     path: /mnt/data
     server: PUBLICIP
@@ -61,11 +61,11 @@ metadata:
   name: pv004
 spec:
   capacity:
-    storage: 10Gi
+    storage: 12Gi
   accessModes:
+    - ReadWriteOnce
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: slow
   nfs:
     path: /mnt/data
     server: PUBLICIP
@@ -80,3 +80,4 @@ sed -i "s/PUBLICIP/$PUBLICIP/g" pv004.yaml
 ./oc create -f pv002.yaml
 ./oc create -f pv003.yaml
 ./oc create -f pv004.yaml
+

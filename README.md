@@ -40,7 +40,7 @@ Now download your pull-secret from the [OpenShift Install Page](https://cloud.re
 # ./packetstrap.sh 8a85f99c6f0fa8e3016f19db8d17768e demonstr8.net test
 ```
 
-This will take a little bit to run and it does a lot of things. You can (view the script)[https://github.com/jameslabocki/packetstrap/blob/master/packetstrap.sh] if you want to see everything it does. In the end, if everything worked you should see this:
+This will take a little bit to run and it does a lot of things. You can [view the script](https://github.com/jameslabocki/packetstrap/blob/master/packetstrap.sh) if you want to see everything it does. In the end, if everything worked you should see this:
 
 ```
 ==== create manifests
