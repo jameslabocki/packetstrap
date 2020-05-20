@@ -87,6 +87,16 @@ Now you can watch and wait to see if the deployment returns
 INFO Waiting up to 20m0s for the Kubernetes API at https://api.test.demonstr8.net:6443&#8230;
 ```
 
+It should look like this if it succeeds
+
+```
+# ./openshift-install --dir=packetinstall wait-for bootstrap-complete --log-level=info
+INFO Waiting up to 20m0s for the Kubernetes API at https://api.test.demonstr8.net:6443... 
+INFO API v1.17.1 up                               
+INFO Waiting up to 40m0s for bootstrapping to complete... 
+INFO It is now safe to remove the bootstrap resources 
+```
+
 Once it returns you can remove the bootstrap server (or comment it out) from /etc/haproxy/haproxy.cfg and restart haproxy.
 
 Then you can source your kubeconfig and be on your way.
@@ -96,21 +106,27 @@ Then you can source your kubeconfig and be on your way.
 # ./oc whoami
 ```
 
-You can get the nodes and see that the workers are pending approval.
+You can get the nodes and see that the masters are there.
 
 ```
 # ./oc get nodes
 ```
 
-Approve the pending requests quickly like this.
+The workers will not be there because you need to approve their Certificate Signining Requests (CSR).
 
 ```
-# ./oc get csr -o go-template='{{range .items}}{{if not .status}}{{.metadata.name}}{{“\n”}}{{end}}{{end}}’ | xargs ./oc adm certificate approve
+# ./oc get csr
+```
+
+You can approve the pending requests quickly like this.
+
+```
+# ./oc get csr -o go-template='{{range .items}}{{if not .status}}{{.metadata.name}}{{"\n"}}{{end}}{{end}}' | xargs ./oc adm certificate approve
 ```
 
 Now you should be able to point your browser at the OpenShift console located at https://console-openshift-console.apps.test.demonstr8.net/ where test = cluster name and demonstr8.net = basedomain or $2 and $3 from your packetstrap.sh command at the start.
 
-If you want to enable an image registry quickly you can do that by running imageregistry.sh. Note that this is not meant for production use.
+If you want to enable an image registry quickly you can do that by running imageregistry.sh. Note that this is not meant for production use as it uses local storage.
 
 ```
 # ./imageregistry.sh
@@ -122,4 +138,4 @@ If you want to create some persistent volumes you can run the persistentvolumes.
 # ./persistentvolumes.sh
 ```
 
-Now you can download the RHEL 8.1 guest image, upload it to /var/www/html on the helper node and get to deploying some VMs on OpenShift Virtualization!
+Now you can download the (RHEL 8.1 guest image)[https://access.redhat.com/downloads/content/479/ver=/rhel---8/8.1/x86_64/product-software], upload it to /var/www/html on the helper node and get to deploying some VMs on (OpenShift Virtualization)[https://docs.openshift.com/container-platform/4.4/welcome/index.html]!
