@@ -5,7 +5,7 @@ I thought I’d share how I’ve automated a large portion of the deployment of 
  - A domain registered in AWS Route53 (feel free to use your favorite DNS service)
  - Access to OpenShift subscriptions
 
-I used the Parsippany, USA (EWR1) datacenter, but this should work with any datacenter.
+I used the Parsippany, USA (EWR1) datacenter, but this should work with any datacenter. You will want to deploy "On Demand" server types for all servers deployed.
 
 First, deploy the following in EWR1:
 
