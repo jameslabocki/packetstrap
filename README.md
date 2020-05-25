@@ -68,7 +68,7 @@ Your IP address will be different of course. As you can see, you are provided wi
  - worker1 – c2.medium.x86 – custom iPXE – use the worker.boot URL above
  - worker2 – c2.medium.x86 – custom iPXE – use the worker.boot URL above
 
-As those boot, you’ll need to get those IP addresses into Amazon Route53 and also change haproxy to have the right IP addresses.
+As those boot, you’ll need to get those IP addresses into Amazon Route53 and also change haproxy to have the right IP addresses. You can refer to the [OpenShift Official Documentation to configure DNS resources](https://docs.openshift.com/container-platform/4.4/installing/installing_bare_metal/installing-bare-metal.html#installation-dns-user-infra_installing-bare-metal) to have more details.
 
 Here are the changes to Route53 I made (as an example)
 
