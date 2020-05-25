@@ -134,6 +134,8 @@ You can approve the pending requests quickly like this.
 
 Now you should be able to point your browser at the OpenShift console located at https://console-openshift-console.apps.test.demonstr8.net/ where test = cluster name and demonstr8.net = basedomain or $2 and $3 from your packetstrap.sh command at the start.
 
+You can log in with the user `kubeadmin` and the password stored in `/root/packetinstall/auth/kubeadmin-password`.
+
 If you want to enable an image registry quickly you can do that by running imageregistry.sh. Note that this is not meant for production use as it uses local storage.
 
 ```
