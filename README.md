@@ -2,17 +2,18 @@
 I thought I’d share how I’ve automated a large portion of the deployment of OpenShift 4.4 on bare metal from Packet. I did this rather quickly, so your mileage may vary. You should always consider using the official documentation if you are doing something serious! I’m assuming you have:
 
  - SSH keys configured in Packet
- - A domain registered in AWS Route53 (feel free to use your favorite DNS service)
- - Access to OpenShift subscriptions
+ - A domain registered and configured in your favorite DNS service (For example AWS Route53 or Google Cloud DNS service)
+ - Access to OpenShift Container Platform (OCP) subscriptions
 
-I used the Parsippany, USA (EWR1) datacenter, but this should work with any datacenter. You will want to deploy "On Demand" server types for all servers deployed.
+I used the Parsippany, USA (EWR1) datacenter, but this should work with any datacenter that has the appropriate VM profiles. You will want to deploy "On Demand" server types for all servers deployed.
 
-First, deploy the following in EWR1:
+First, deploy the following server in EWR1:
 
- - x1.small.x86 ($0.40/hour)
- - Operating System = Licensed – RHEL 7
+ - Size: x1.small.x86 ($0.40/hour)
+ - Operating System: Licensed – RHEL 7
+ - Name: workstation 
 
-This node will act as our “helper”. This is not to be confused with the bootstrap node for deploying OpenShift. We will deploy that later. The “helper” will be where we run the packetstrap.sh script to get everything ready to go.
+This node will act as our “helper” workstation. This is not to be confused with the bootstrap node for deploying OpenShift. We will deploy that later. The “helper” will be where we run the packetstrap.sh script to get everything ready to go.
 
 Once x1.small.x86 is up and running ssh to it and download the scripts (git isn’t installed by default).
 
@@ -30,7 +31,7 @@ Once x1.small.x86 is up and running ssh to it and download the scripts (git isn�
 # chmod +x *.sh
 ```
 
-Now download your pull-secret from the [OpenShift Install Page](https://cloud.redhat.com/openshift/install/pull-secret) and drop it into your current working directory as pull-secret.txt. After that, run the packetstrap.sh script and pass it three arguments:
+Now download your pull-secret from the [OpenShift Install Page](https://cloud.redhat.com/openshift/install/pull-secret) and drop it into your current working directory of your `workstation` machine as pull-secret.txt. After that, run the packetstrap.sh script and pass it three arguments:
 
  - The pool ID to use that contains the OpenShift subscriptions.
  - The domain name (demonstr8.net below)
@@ -68,7 +69,7 @@ Your IP address will be different of course. As you can see, you are provided wi
  - worker1 – c2.medium.x86 – custom iPXE – use the worker.boot URL above
  - worker2 – c2.medium.x86 – custom iPXE – use the worker.boot URL above
 
-As those boot, you’ll need to get those IP addresses into Amazon Route53 and also change haproxy to have the right IP addresses.
+As those boot, you’ll need to get those IP addresses into your DNS registry (in this case Amazon Route 53). We will use the `workstation` as haproxy and we will have to change it to have the right IP addresses.
 
 Here are the changes to Route53 I made (as an example)
 
