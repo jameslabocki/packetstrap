@@ -74,11 +74,20 @@ Here are the changes to Route53 I made (as an example)
 
 ![DNS Entries in Route53](images/route53.png)
 
-For editing haproxy you can just edit the values in the fixhaproxy.sh and run the script.
+It's time to reconfigure haproxy in the `workstation`. You can just edit the values, for all the machines deployed, in the `fixhaproxy.sh` file as in the following example (but with your own IP addresses):
 
 ```
-# vi fixhaproxy.sh
-<assign IP addresses>
+MASTER0IP=147.75.79.93
+MASTER1IP=147.75.196.66
+MASTER2IP=147.75.79.21
+BOOTSTRAPIP=147.75.192.203
+WORKER0IP=147.75.79.169
+WORKER1IP=147.75.79.165
+```
+
+... and run the reconfiguration script:
+
+```
 # ./fixhaproxy.sh
 ```
 
