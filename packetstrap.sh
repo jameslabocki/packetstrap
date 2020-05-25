@@ -263,9 +263,9 @@ sed -i "s/PUBLICIP/$PUBLICIP/g" /var/www/html/packetstrap/worker.boot
 
 
 echo "==== all done, you can now iPXE servers to:"
-echo "       http://${PUBLICIP}:8080/packetstrap/bootstrap.boot"
-echo "       http://${PUBLICIP}:8080/packetstrap/master.boot"
-echo "       http://${PUBLICIP}:8080/packetstrap/worker.boot"
+echo "       http://${PUBLICIP}:8080/packetstrap/bootstrap.boot" | tee -a iPXE_info.txt
+echo "       http://${PUBLICIP}:8080/packetstrap/master.boot" | tee -a iPXE_info.txt
+echo "       http://${PUBLICIP}:8080/packetstrap/worker.boot" | tee -a iPXE_info.txt
 
 echo "==== setting path"
 export PATH=$PATH:$PWD
